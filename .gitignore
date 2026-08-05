@@ -21,6 +21,13 @@ npm-debug.log*
 .env.*
 !.envrc
 
+# Local Core data
+.data/
+
 # SQLite local DBs
 *.sqlite
 *.sqlite-journal
+
+# Swift
+clients/apple/.build/
+clients/apple/.swiftpm/

@@ -1,28 +1,31 @@
-# Development environment (Nix flake)
+# Development environment
 
-OmniBoard uses a **Nix flake** as the only supported toolchain. Prefer `nix develop` (or direnv + `use flake`) over host `rustup` / Homebrew compilers.
+## Core / protocol / providers (Nix flake)
+
+OmniBoard uses a **Nix flake** for Rust Core, protocol tooling, and script providers:
 
 ```bash
 nix develop
-# or, with direnv:
-# echo 'use flake' > .envrc && direnv allow
 ```
 
-## Provided tools
+Do not rely on host `rustup` for Core builds.
 
-| Tool | Role |
-| ---- | ---- |
-| Rust stable (+ rustfmt, clippy, rust-analyzer) | `core/`, `hub/` |
-| Node.js 22 | protocol package, conformance tools, TS SDKs/providers |
-| Python 3 | script providers / helpers |
-| SQLite, OpenSSL | Core native linkage |
-| jq, just | scripting |
+## Apple clients (host Swift)
+
+`clients/apple` uses the **system Swift / Xcode** toolchain on macOS. No flake packages are required for that subtree.
+
+```bash
+cd clients/apple
+swift run OmniBoardKitSmoke
+swift run OmniBoardApp
+```
 
 ## Checks
 
 ```bash
-nix develop -c node tools/conformance/validate.mjs
-nix develop -c cargo test --manifest-path core/Cargo.toml
+nix develop -c just check          # protocol + core tests
+nix develop -c just run-clock      # Core daemon + clock provider
+cd clients/apple && swift run OmniBoardKitSmoke
 ```
 
-See root [`flake.nix`](../flake.nix).
+See root [`flake.nix`](../flake.nix) and [`clients/apple/README.md`](../clients/apple/README.md).

@@ -1,0 +1,23 @@
+{
+  "id": "com.omniboard.clock",
+  "displayName": "Clock",
+  "version": "0.1.0",
+  "oppVersion": "1.0",
+  "capabilities": ["items.push", "cache.hints", "provider.ping"],
+  "permissions": [],
+  "configSchema": { "type": "object", "additionalProperties": false },
+  "itemTypes": [
+    {
+      "type": "com.omniboard.clock.now",
+      "payloadSchema": {
+        "type": "object",
+        "required": ["unix", "iso"],
+        "properties": {
+          "unix": { "type": "integer" },
+          "iso": { "type": "string" }
+        }
+      }
+    }
+  ],
+  "actions": []
+}

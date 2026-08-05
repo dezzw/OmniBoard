@@ -39,18 +39,21 @@ omniboard/
 
 See [19-repository-layout.md](docs/architecture/19-repository-layout.md) for ownership rules.
 
-## Development (Nix flake)
+## Development
 
-**Always use the Nix flake toolchain** — do not rely on host `rustup` / Homebrew compilers.
+**Rust / protocol / providers:** Nix flake only (`nix develop`). See [docs/dev-environment.md](docs/dev-environment.md).
+
+**Apple clients:** host Swift / Xcode on macOS — **no Nix**. See [clients/apple/README.md](clients/apple/README.md).
 
 ```bash
 nix develop
-just deps      # once: install conformance npm deps
-just protocol  # validate packages/protocol fixtures
-```
+just deps && just check
+just run-clock          # Core + clock provider on /tmp/omniboard.sock
 
-Details: [docs/dev-environment.md](docs/dev-environment.md).
+# separate terminal (host Swift):
+cd clients/apple && swift run OmniBoardApp
+```
 
 ## Status
 
-Architecture docs + protocol package in progress. Roadmap: [20-roadmap.md](docs/architecture/20-roadmap.md).
+Architecture docs, protocol package, Rust Core (ItemStore, OPP supervisor, Client Protocol socket), Python clock provider, and SwiftUI Apple scaffold. Roadmap: [20-roadmap.md](docs/architecture/20-roadmap.md).

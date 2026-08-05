@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Validate golden fixtures in packages/protocol against JSON Schemas.
- * Run via: nix develop -c node tools/conformance/validate.mjs
+ * Run via: nix develop -c just protocol
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -22,7 +22,7 @@ function loadAjv() {
     return { Ajv, addFormats };
   } catch {
     console.error(
-      "Missing ajv. Inside nix develop, run: npm install --prefix tools/conformance"
+      "Missing ajv. Inside nix develop, run: just deps"
     );
     process.exit(1);
   }
@@ -52,13 +52,15 @@ const ajv = new Ajv({
 });
 addFormats(ajv);
 
-// Register every schema by $id and by relative path aliases.
+const byId = new Map();
 for (const file of walkJsonFiles(schemasDir)) {
   const schema = readJson(file);
   const rel = path.relative(schemasDir, file).split(path.sep).join("/");
-  if (schema.$id) ajv.addSchema(schema);
-  ajv.addSchema(schema, rel);
-  ajv.addSchema(schema, `https://omniboard.dev/schemas/${rel}`);
+  const id = schema.$id ?? `https://omniboard.dev/schemas/${rel}`;
+  if (!schema.$id) schema.$id = id;
+  if (byId.has(id)) continue;
+  byId.set(id, schema);
+  ajv.addSchema(schema);
 }
 
 const cases = [
@@ -126,7 +128,6 @@ for (const c of cases) {
   }
 }
 
-// Registry sanity
 const caps = readJson(path.join(protocolRoot, "registries/capabilities.json"));
 const errors = readJson(path.join(protocolRoot, "registries/error-codes.json"));
 const hints = readJson(path.join(protocolRoot, "registries/surface-hints.json"));

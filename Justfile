@@ -15,8 +15,18 @@ deps:
 protocol:
     node tools/conformance/validate.mjs
 
-# Core tests (once crate exists)
+# Core unit tests (includes supervisor integration when python3 is available)
 core-test:
-    cargo test --manifest-path core/Cargo.toml
+    cargo test -p omniboard-core
 
-check: protocol
+# Run Core + clock provider (Client Protocol on --socket)
+run-clock:
+    mkdir -p {{justfile_directory()}}/.data
+    cargo run -p omniboard-core --bin omniboard -- run \
+      --provider-cmd python3 \
+      --provider-arg providers/clock/provider.py \
+      --provider-cwd {{justfile_directory()}} \
+      --db {{justfile_directory()}}/.data/omniboard.sqlite \
+      --socket /tmp/omniboard.sock
+
+check: protocol core-test

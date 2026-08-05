@@ -4,6 +4,11 @@
 
 Map the monorepo structure, ownership boundaries, and how documentation relates to future code packages. Prefer one protocol version across Core, Hub, SDKs, and clients (VS Code / Home Assistant style).
 
+## Toolchain
+
+- **Core, Hub, protocol, script providers:** root **Nix flake** (`nix develop` / direnv `use flake`). Do not rely on host `rustup`. See [docs/dev-environment.md](../dev-environment.md).
+- **Apple clients (`clients/apple`):** host **Xcode / Swift** on macOS — not the flake.
+
 ## Tree
 
 ```
