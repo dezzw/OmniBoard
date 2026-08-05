@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omniboard.dev/schemas/item.json",
+  "title": "OmniBoard Item",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "type", "revision", "updatedAt", "payload"],
+  "properties": {
+    "id": { "$ref": "common.json#/$defs/itemId" },
+    "type": { "$ref": "common.json#/$defs/namespacedId" },
+    "revision": { "type": "integer", "minimum": 0 },
+    "updatedAt": { "$ref": "common.json#/$defs/iso8601" },
+    "payload": { "type": "object" },
+    "render": { "$ref": "render-ir.json" },
+    "actions": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "ttl": { "type": "string", "description": "ISO-8601 duration" },
+    "priority": { "type": "integer" },
+    "asOf": { "$ref": "common.json#/$defs/iso8601" },
+    "staleAfter": { "$ref": "common.json#/$defs/iso8601" }
+  }
+}

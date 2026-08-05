@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omniboard.dev/schemas/opp/initialize-result.json",
+  "title": "OPP initialize result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["oppVersion", "serverInfo", "capabilities"],
+  "properties": {
+    "oppVersion": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+$" },
+    "serverInfo": {
+      "type": "object",
+      "required": ["name", "version"],
+      "properties": {
+        "name": { "type": "string" },
+        "version": { "type": "string" }
+      }
+    },
+    "capabilities": { "type": "object" }
+  }
+}

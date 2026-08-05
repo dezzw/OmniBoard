@@ -1,0 +1,13 @@
+{
+  "surfaceHints": [
+    "lockScreen",
+    "widgetSmall",
+    "widgetMedium",
+    "widgetLarge",
+    "liveActivity",
+    "dynamicIsland",
+    "menuBar",
+    "watchComplication",
+    "canvas"
+  ]
+}

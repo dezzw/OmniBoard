@@ -1,0 +1,10 @@
+{
+  "jsonrpc": "2.0",
+  "method": "provider/status",
+  "params": {
+    "state": "degraded",
+    "reasonCode": "RateLimited",
+    "retryAfterMs": 60000,
+    "message": "GitHub API rate limit exceeded"
+  }
+}

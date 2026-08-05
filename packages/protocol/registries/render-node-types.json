@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0",
+  "nodeTypes": [
+    "Text",
+    "Symbol",
+    "Image",
+    "HStack",
+    "VStack",
+    "Grid",
+    "List",
+    "Gauge",
+    "Progress",
+    "RelativeTime",
+    "Sparkline",
+    "Conditional",
+    "SizeClassSwitch",
+    "SurfaceSwitch",
+    "ActionButton",
+    "Fallback"
+  ]
+}

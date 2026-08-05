@@ -1,0 +1,17 @@
+{
+  "name": "@omniboard/protocol",
+  "version": "0.1.0",
+  "private": true,
+  "description": "OmniBoard protocol schemas, registries, and golden fixtures",
+  "type": "module",
+  "exports": {
+    "./registries/*": "./registries/*",
+    "./schemas/*": "./schemas/*",
+    "./fixtures/*": "./fixtures/*"
+  },
+  "files": [
+    "schemas",
+    "registries",
+    "fixtures"
+  ]
+}

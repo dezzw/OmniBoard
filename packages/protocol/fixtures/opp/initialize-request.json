@@ -1,0 +1,21 @@
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "initialize",
+  "params": {
+    "oppVersion": "1.0",
+    "processId": 12345,
+    "clientInfo": { "name": "omniboard-core", "version": "0.0.0" },
+    "capabilities": {
+      "items": { "push": true, "pull": true },
+      "actions": { "execute": true },
+      "cache": { "hints": true },
+      "encoding": ["json", "msgpack"]
+    },
+    "instance": {
+      "providerInstanceId": "inst_flight_1",
+      "config": { "route": "JFK-LHR" },
+      "locale": "en-US"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omniboard.dev/schemas/opp/provider-status.json",
+  "title": "OPP provider/status params",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["state"],
+  "properties": {
+    "state": {
+      "type": "string",
+      "enum": ["ready", "degraded", "stopping"]
+    },
+    "reasonCode": { "type": "string" },
+    "retryAfterMs": { "type": "integer", "minimum": 0 },
+    "message": { "type": "string" }
+  }
+}

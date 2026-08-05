@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omniboard.dev/schemas/manifest.json",
+  "title": "ProviderManifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "displayName", "version", "oppVersion"],
+  "properties": {
+    "id": { "$ref": "common.json#/$defs/namespacedId" },
+    "displayName": { "type": "string", "minLength": 1 },
+    "version": { "$ref": "common.json#/$defs/semver" },
+    "oppVersion": { "$ref": "common.json#/$defs/majorMinor" },
+    "capabilities": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "permissions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id"],
+        "properties": {
+          "id": { "type": "string" },
+          "hosts": { "type": "array", "items": { "type": "string" } },
+          "paths": { "type": "array", "items": { "type": "string" } },
+          "optional": { "type": "boolean" },
+          "discouraged": { "type": "boolean" }
+        }
+      }
+    },
+    "configSchema": { "type": "object" },
+    "itemTypes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type"],
+        "properties": {
+          "type": { "$ref": "common.json#/$defs/namespacedId" },
+          "payloadSchema": { "type": "object" },
+          "actions": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id"],
+        "properties": {
+          "id": { "type": "string" },
+          "titleKey": { "type": "string" },
+          "paramsSchema": { "type": "object" },
+          "resultSchema": { "type": "object" },
+          "permissions": { "type": "array", "items": { "type": "string" } },
+          "destructive": { "type": "boolean" },
+          "idempotent": { "type": "boolean" }
+        }
+      }
+    }
+  }
+}

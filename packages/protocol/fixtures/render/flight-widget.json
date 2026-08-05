@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "1.0",
+  "surfaceHints": ["widgetMedium", "dynamicIsland"],
+  "root": {
+    "type": "SurfaceSwitch",
+    "cases": {
+      "dynamicIsland": {
+        "type": "HStack",
+        "children": [
+          { "type": "Symbol", "name": "airplane", "accessibilityLabel": "Flight" },
+          { "type": "Text", "value": "AA100", "style": "title" }
+        ]
+      },
+      "widgetMedium": {
+        "type": "VStack",
+        "children": [
+          {
+            "type": "HStack",
+            "children": [
+              { "type": "Text", "value": "AA100", "style": "title" },
+              { "type": "Text", "value": "Gate B12", "style": "body" }
+            ]
+          },
+          { "type": "RelativeTime", "instant": "2026-08-04T21:30:00Z" },
+          {
+            "type": "ActionButton",
+            "actionId": "com.example.flight.checkIn",
+            "label": { "key": "action.checkIn" }
+          }
+        ]
+      }
+    },
+    "default": { "type": "Text", "value": "AA100" }
+  }
+}

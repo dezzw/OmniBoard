@@ -1,0 +1,36 @@
+{
+  "id": "com.example.flights",
+  "displayName": "Flights",
+  "version": "1.4.0",
+  "oppVersion": "1.0",
+  "capabilities": ["items.push", "actions.execute", "cache.hints"],
+  "permissions": [
+    { "id": "network.hosts", "hosts": ["api.airline.example"] },
+    { "id": "notifications", "optional": true }
+  ],
+  "configSchema": {
+    "type": "object",
+    "properties": { "route": { "type": "string" } }
+  },
+  "itemTypes": [
+    {
+      "type": "com.example.flight.status",
+      "payloadSchema": { "type": "object" },
+      "actions": ["com.example.flight.checkIn"]
+    }
+  ],
+  "actions": [
+    {
+      "id": "com.example.flight.checkIn",
+      "paramsSchema": {
+        "type": "object",
+        "properties": { "confirmation": { "type": "string" } }
+      },
+      "resultSchema": {
+        "type": "object",
+        "properties": { "ok": { "type": "boolean" } }
+      },
+      "idempotent": true
+    }
+  ]
+}

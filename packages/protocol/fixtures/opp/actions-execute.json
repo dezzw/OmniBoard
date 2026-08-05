@@ -1,0 +1,13 @@
+{
+  "jsonrpc": "2.0",
+  "id": 3,
+  "method": "actions/execute",
+  "params": {
+    "invocationId": "inv_01JEXAMPLE",
+    "actionId": "com.example.flight.checkIn",
+    "itemId": { "localId": "AA100" },
+    "params": { "confirmation": "ABC123" },
+    "idempotencyKey": "inv_01JEXAMPLE",
+    "continuation": null
+  }
+}

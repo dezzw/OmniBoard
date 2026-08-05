@@ -1,0 +1,20 @@
+{
+  "codes": [
+    { "code": -32700, "name": "ParseError", "message": "Invalid JSON" },
+    { "code": -32600, "name": "InvalidRequest", "message": "Bad envelope" },
+    { "code": -32601, "name": "MethodNotFound", "message": "Unknown method" },
+    { "code": -32602, "name": "InvalidParams", "message": "Schema failure" },
+    { "code": -32603, "name": "InternalError", "message": "Provider or Core bug" },
+    { "code": -32000, "name": "ProviderCrash", "message": "Supervised crash surface" },
+    { "code": -32001, "name": "Timeout", "message": "Deadline exceeded" },
+    { "code": -32002, "name": "AuthExpired", "message": "Re-auth required" },
+    { "code": -32003, "name": "PermissionDenied", "message": "Missing grant or allowlist" },
+    { "code": -32004, "name": "InvalidRender", "message": "Render IR rejected hard" },
+    { "code": -32005, "name": "RateLimited", "message": "Rate limited; see retryAfterMs" },
+    { "code": -32006, "name": "StaleData", "message": "Provider knows data is stale" },
+    { "code": -32007, "name": "Unavailable", "message": "Temporary outage" },
+    { "code": -32008, "name": "SyncConflict", "message": "Sync conflict needs user resolution" },
+    { "code": -32009, "name": "InvalidParamsApp", "message": "Application-level invalid params" },
+    { "code": -32010, "name": "NotFound", "message": "Item or action not found" }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "schemaVersion": "1.0",
+  "root": {
+    "type": "UnknownFutureNode",
+    "fallback": { "type": "Text", "value": "Status unavailable" }
+  }
+}

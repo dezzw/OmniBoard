@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omniboard.dev/schemas/render-ir.json",
+  "title": "RenderDocument",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "root"],
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+$"
+    },
+    "surfaceHints": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "lockScreen",
+          "widgetSmall",
+          "widgetMedium",
+          "widgetLarge",
+          "liveActivity",
+          "dynamicIsland",
+          "menuBar",
+          "watchComplication",
+          "canvas"
+        ]
+      }
+    },
+    "localization": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "locale": { "type": "string" },
+        "defaultTable": { "type": "string" }
+      }
+    },
+    "root": { "$ref": "#/$defs/node" }
+  },
+  "$defs": {
+    "node": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": { "type": "string", "minLength": 1 },
+        "id": { "type": "string" },
+        "accessibility": {
+          "type": "object",
+          "properties": {
+            "role": { "type": "string" },
+            "label": { "type": "string" }
+          }
+        },
+        "fallback": { "$ref": "#/$defs/node" },
+        "value": { "type": "string" },
+        "key": { "type": "string" },
+        "style": {
+          "type": "string",
+          "enum": ["title", "body", "caption", "mono"]
+        },
+        "name": { "type": "string" },
+        "accessibilityLabel": { "type": "string" },
+        "uri": { "type": "string" },
+        "contentMode": { "type": "string" },
+        "children": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/node" }
+        },
+        "spacing": { "type": "number" },
+        "alignment": { "type": "string" },
+        "columns": { "type": "integer", "minimum": 1 },
+        "min": { "type": "number" },
+        "max": { "type": "number" },
+        "label": {
+          "oneOf": [
+            { "type": "string" },
+            {
+              "type": "object",
+              "properties": { "key": { "type": "string" }, "value": { "type": "string" } }
+            }
+          ]
+        },
+        "instant": { "type": "string" },
+        "points": {
+          "type": "array",
+          "items": { "type": "number" }
+        },
+        "when": {},
+        "then": { "$ref": "#/$defs/node" },
+        "else": { "$ref": "#/$defs/node" },
+        "compact": { "$ref": "#/$defs/node" },
+        "regular": { "$ref": "#/$defs/node" },
+        "cases": {
+          "type": "object",
+          "additionalProperties": { "$ref": "#/$defs/node" }
+        },
+        "default": { "$ref": "#/$defs/node" },
+        "actionId": { "type": "string" },
+        "params": { "type": "object" },
+        "primary": { "$ref": "#/$defs/node" }
+      }
+    }
+  }
+}

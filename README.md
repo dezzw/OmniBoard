@@ -39,6 +39,18 @@ omniboard/
 
 See [19-repository-layout.md](docs/architecture/19-repository-layout.md) for ownership rules.
 
+## Development (Nix flake)
+
+**Always use the Nix flake toolchain** — do not rely on host `rustup` / Homebrew compilers.
+
+```bash
+nix develop
+just deps      # once: install conformance npm deps
+just protocol  # validate packages/protocol fixtures
+```
+
+Details: [docs/dev-environment.md](docs/dev-environment.md).
+
 ## Status
 
-Documentation foundation only. Implementation roadmap: [20-roadmap.md](docs/architecture/20-roadmap.md).
+Architecture docs + protocol package in progress. Roadmap: [20-roadmap.md](docs/architecture/20-roadmap.md).

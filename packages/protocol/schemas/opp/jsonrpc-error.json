@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omniboard.dev/schemas/opp/jsonrpc-error.json",
+  "title": "JSON-RPC error object",
+  "type": "object",
+  "required": ["code", "message"],
+  "additionalProperties": false,
+  "properties": {
+    "code": { "type": "integer" },
+    "message": { "type": "string" },
+    "data": {
+      "type": "object",
+      "properties": {
+        "reasonCode": { "type": "string" },
+        "retryAfterMs": { "type": "integer", "minimum": 0 },
+        "userVisibleMessage": { "type": "string" },
+        "instanceId": { "type": "string" },
+        "permissionId": { "type": "string" },
+        "host": { "type": "string" },
+        "telemetrySafe": { "type": "boolean" }
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omniboard.dev/schemas/opp/initialize-params.json",
+  "title": "OPP initialize params",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["oppVersion", "capabilities", "instance"],
+  "properties": {
+    "oppVersion": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+$" },
+    "processId": { "type": ["integer", "null"] },
+    "clientInfo": {
+      "type": "object",
+      "required": ["name", "version"],
+      "properties": {
+        "name": { "type": "string" },
+        "version": { "type": "string" }
+      }
+    },
+    "capabilities": { "type": "object" },
+    "instance": {
+      "type": "object",
+      "required": ["providerInstanceId"],
+      "properties": {
+        "providerInstanceId": { "type": "string" },
+        "config": { "type": "object" },
+        "locale": { "type": "string" }
+      }
+    }
+  }
+}

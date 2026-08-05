@@ -1,0 +1,28 @@
+{
+  "jsonrpc": "2.0",
+  "method": "items/changed",
+  "params": {
+    "providerInstanceId": "inst_flight_1",
+    "delta": {
+      "upsert": [
+        {
+          "id": { "providerInstanceId": "inst_flight_1", "localId": "AA100" },
+          "type": "com.example.flight.status",
+          "revision": 42,
+          "updatedAt": "2026-08-04T20:00:00Z",
+          "payload": { "flightNumber": "AA100", "status": "boarding", "gate": "B12" },
+          "render": {
+            "schemaVersion": "1.0",
+            "root": { "type": "Text", "value": "AA100 · Gate B12" }
+          },
+          "actions": ["com.example.flight.checkIn"],
+          "tags": ["travel", "today"],
+          "asOf": "2026-08-04T20:00:00Z",
+          "staleAfter": "2026-08-04T20:15:00Z"
+        }
+      ],
+      "delete": []
+    },
+    "cache": { "ttlMs": 60000, "tags": ["flights"] }
+  }
+}

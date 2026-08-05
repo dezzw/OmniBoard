@@ -1,0 +1,13 @@
+{
+  "id": { "providerInstanceId": "inst_flight_1", "localId": "AA100" },
+  "type": "com.example.flight.status",
+  "revision": 42,
+  "updatedAt": "2026-08-04T20:00:00Z",
+  "payload": { "flightNumber": "AA100", "status": "boarding", "gate": "B12" },
+  "render": {
+    "schemaVersion": "1.0",
+    "root": { "type": "Text", "value": "AA100 · Gate B12" }
+  },
+  "tags": ["travel", "today"],
+  "priority": 10
+}

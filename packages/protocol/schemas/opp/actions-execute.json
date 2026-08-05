@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omniboard.dev/schemas/opp/actions-execute.json",
+  "title": "OPP actions/execute params",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["invocationId", "actionId"],
+  "properties": {
+    "invocationId": { "type": "string", "minLength": 1 },
+    "actionId": { "type": "string", "minLength": 1 },
+    "itemId": {
+      "type": "object",
+      "properties": {
+        "providerInstanceId": { "type": "string" },
+        "localId": { "type": "string" }
+      }
+    },
+    "params": { "type": "object" },
+    "idempotencyKey": { "type": "string" },
+    "continuation": {
+      "type": ["object", "null"],
+      "properties": {
+        "step": { "type": "integer", "minimum": 0 },
+        "params": { "type": "object" }
+      }
+    }
+  }
+}

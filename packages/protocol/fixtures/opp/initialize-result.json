@@ -1,0 +1,14 @@
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "oppVersion": "1.0",
+    "serverInfo": { "name": "flights", "version": "1.4.0" },
+    "capabilities": {
+      "items": { "push": true, "pull": false },
+      "actions": { "execute": true },
+      "cache": { "hints": true },
+      "encoding": ["json"]
+    }
+  }
+}

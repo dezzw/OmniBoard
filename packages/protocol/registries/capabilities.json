@@ -1,0 +1,33 @@
+{
+  "oppVersion": "1.0",
+  "capabilities": [
+    {
+      "id": "items.push",
+      "description": "Provider may send items/changed notifications"
+    },
+    {
+      "id": "items.pull",
+      "description": "Core may call items/get and items/query"
+    },
+    {
+      "id": "actions.execute",
+      "description": "Provider handles actions/execute"
+    },
+    {
+      "id": "cache.hints",
+      "description": "Provider may attach cache directives on items/changed"
+    },
+    {
+      "id": "encoding.msgpack",
+      "description": "MessagePack frames allowed after negotiation"
+    },
+    {
+      "id": "log",
+      "description": "Provider may emit log notifications"
+    },
+    {
+      "id": "provider.ping",
+      "description": "Health ping supported"
+    }
+  ]
+}

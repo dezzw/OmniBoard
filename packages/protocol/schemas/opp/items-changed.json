@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omniboard.dev/schemas/opp/items-changed.json",
+  "title": "OPP items/changed params",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["providerInstanceId"],
+  "properties": {
+    "providerInstanceId": { "type": "string", "minLength": 1 },
+    "delta": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "upsert": {
+          "type": "array",
+          "items": { "$ref": "../item.json" }
+        },
+        "delete": {
+          "type": "array",
+          "items": { "$ref": "../common.json#/$defs/itemId" }
+        }
+      }
+    },
+    "snapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["items"],
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": { "$ref": "../item.json" }
+        }
+      }
+    },
+    "cache": {
+      "type": "object",
+      "properties": {
+        "ttlMs": { "type": "integer", "minimum": 0 },
+        "revalidateAfterMs": { "type": "integer", "minimum": 0 },
+        "tags": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  },
+  "oneOf": [
+    { "required": ["delta"] },
+    { "required": ["snapshot"] }
+  ]
+}
