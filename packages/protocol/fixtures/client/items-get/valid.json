@@ -1,0 +1,28 @@
+{
+  "params": {
+    "id": "weather.home:current"
+  },
+  "result": {
+    "id": "weather.home:current",
+    "type": "weather.current",
+    "revision": 3,
+    "updatedAt": "2026-09-17T12:00:00Z",
+    "providerInstanceId": "weather.home",
+    "payload": {
+      "tempC": 22
+    },
+    "render": {
+      "schemaVersion": 1,
+      "surfaces": {
+        "default": {
+          "kind": "text",
+          "value": "22°C"
+        }
+      }
+    },
+    "actions": [],
+    "freshness": {
+      "state": "fresh"
+    }
+  }
+}

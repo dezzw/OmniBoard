@@ -1,0 +1,16 @@
+{
+  "id": "weather.home:current",
+  "type": "weather.current",
+  "revision": 0,
+  "updatedAt": "2026-09-17T12:00:00Z",
+  "providerInstanceId": "weather.home",
+  "payload": "not-an-object",
+  "render": {
+    "schemaVersion": 1,
+    "surfaces": {}
+  },
+  "actions": [],
+  "freshness": {
+    "state": "unknown"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "items": [
+    {
+      "id": "weather.home:current",
+      "type": "weather.current",
+      "revision": 4,
+      "updatedAt": "2026-09-17T12:05:00Z",
+      "providerInstanceId": "weather.home",
+      "payload": {
+        "tempC": 23
+      },
+      "render": {
+        "schemaVersion": 1,
+        "surfaces": {
+          "widgetSmall": {
+            "kind": "text",
+            "value": "23°"
+          }
+        }
+      },
+      "actions": [],
+      "freshness": {
+        "state": "fresh"
+      }
+    }
+  ],
+  "deletedIds": [
+    "weather.home:forecast-old"
+  ]
+}

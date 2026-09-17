@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omniboard.dev/protocol/schemas/client/methods.schema.json",
+  "title": "ClientMethods",
+  "description": "Phase 2 client API surface exposed to SwiftUI via a cdylib boundary. Delivery is a callback plus opaque context — not AsyncStream — and the callback is not invoked on the main queue. OPP actions/execute exists in the Provider protocol but is not part of this Phase 2 client method set.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "acceptedRenderSchemaVersions": {
+      "type": "array",
+      "const": [1],
+      "description": "Phase 0 accepted Render IR schemaVersion set."
+    },
+    "errors": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "unsupportedSchemaVersion": {
+          "type": "object",
+          "description": "Returned when Item.render.schemaVersion is not in acceptedRenderSchemaVersions.",
+          "required": ["code", "message"],
+          "properties": {
+            "code": { "const": "unsupportedSchemaVersion" },
+            "message": { "type": "string" },
+            "schemaVersion": { "type": "integer" }
+          }
+        }
+      }
+    },
+    "methods": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "board/get": {
+          "type": "object",
+          "description": "Returns BoardSurface only. No embedded Items. No items/list.",
+          "required": ["result"],
+          "properties": {
+            "params": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "boardId": { "type": "string" }
+              }
+            },
+            "result": {
+              "$ref": "../board/board-surface.schema.json"
+            }
+          }
+        },
+        "items/get": {
+          "type": "object",
+          "description": "Fetches a single Item by id.",
+          "required": ["params", "result"],
+          "properties": {
+            "params": {
+              "type": "object",
+              "required": ["id"],
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9._-]+:[A-Za-z0-9._-]+$"
+                }
+              }
+            },
+            "result": {
+              "$ref": "../item/item.schema.json"
+            }
+          }
+        },
+        "events/subscribe": {
+          "type": "object",
+          "description": "Subscription notifications for Item lifecycle. No item.added. No board.updated in this schema version.",
+          "required": ["notifications"],
+          "properties": {
+            "params": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {}
+            },
+            "notifications": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "item.updated": {
+                  "type": "object",
+                  "required": ["id"],
+                  "additionalProperties": false,
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z0-9._-]+:[A-Za-z0-9._-]+$"
+                    }
+                  }
+                },
+                "item.removed": {
+                  "type": "object",
+                  "required": ["id"],
+                  "additionalProperties": false,
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z0-9._-]+:[A-Za-z0-9._-]+$"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

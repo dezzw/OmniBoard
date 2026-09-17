@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omniboard.dev/protocol/schemas/opp/initialize.schema.json",
+  "title": "OppInitializeParams",
+  "description": "Params for OPP method initialize.",
+  "type": "object",
+  "required": ["protocolVersion", "providerInstanceId", "config"],
+  "additionalProperties": false,
+  "properties": {
+    "protocolVersion": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+$",
+      "description": "OPP protocol version as MAJOR.MINOR."
+    },
+    "providerInstanceId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._-]+$"
+    },
+    "config": {
+      "type": "object",
+      "description": "Provider instance configuration supplied by Core.",
+      "additionalProperties": true
+    }
+  }
+}

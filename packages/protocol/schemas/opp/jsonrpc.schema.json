@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omniboard.dev/protocol/schemas/opp/jsonrpc.schema.json",
+  "title": "JsonRpcEnvelope",
+  "description": "JSON-RPC 2.0 envelope for OPP over stdio + NDJSON (default channel). Covers request, notification, success result, and error result.",
+  "oneOf": [
+    { "$ref": "#/$defs/request" },
+    { "$ref": "#/$defs/notification" },
+    { "$ref": "#/$defs/successResponse" },
+    { "$ref": "#/$defs/errorResponse" }
+  ],
+  "$defs": {
+    "jsonrpcVersion": {
+      "type": "string",
+      "const": "2.0"
+    },
+    "requestId": {
+      "oneOf": [
+        { "type": "string" },
+        { "type": "integer" },
+        { "type": "null" }
+      ]
+    },
+    "request": {
+      "type": "object",
+      "required": ["jsonrpc", "method", "id"],
+      "additionalProperties": false,
+      "properties": {
+        "jsonrpc": { "$ref": "#/$defs/jsonrpcVersion" },
+        "method": { "type": "string", "minLength": 1 },
+        "params": {},
+        "id": { "$ref": "#/$defs/requestId" }
+      }
+    },
+    "notification": {
+      "type": "object",
+      "required": ["jsonrpc", "method"],
+      "additionalProperties": false,
+      "properties": {
+        "jsonrpc": { "$ref": "#/$defs/jsonrpcVersion" },
+        "method": { "type": "string", "minLength": 1 },
+        "params": {}
+      },
+      "not": {
+        "required": ["id"]
+      }
+    },
+    "successResponse": {
+      "type": "object",
+      "required": ["jsonrpc", "result", "id"],
+      "additionalProperties": false,
+      "properties": {
+        "jsonrpc": { "$ref": "#/$defs/jsonrpcVersion" },
+        "result": {},
+        "id": { "$ref": "#/$defs/requestId" }
+      }
+    },
+    "errorObject": {
+      "type": "object",
+      "required": ["code", "message"],
+      "additionalProperties": false,
+      "properties": {
+        "code": { "type": "integer" },
+        "message": { "type": "string" },
+        "data": {}
+      }
+    },
+    "errorResponse": {
+      "type": "object",
+      "required": ["jsonrpc", "error", "id"],
+      "additionalProperties": false,
+      "properties": {
+        "jsonrpc": { "$ref": "#/$defs/jsonrpcVersion" },
+        "error": { "$ref": "#/$defs/errorObject" },
+        "id": { "$ref": "#/$defs/requestId" }
+      }
+    }
+  }
+}

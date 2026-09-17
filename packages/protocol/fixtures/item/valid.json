@@ -1,0 +1,52 @@
+{
+  "id": "weather.home:current",
+  "type": "weather.current",
+  "revision": 3,
+  "updatedAt": "2026-09-17T12:00:00Z",
+  "providerInstanceId": "weather.home",
+  "payload": {
+    "tempC": 22,
+    "summary": "Sunny"
+  },
+  "render": {
+    "schemaVersion": 1,
+    "surfaces": {
+      "widgetSmall": {
+        "kind": "vstack",
+        "children": [
+          {
+            "kind": "text",
+            "value": "22°"
+          }
+        ]
+      },
+      "default": {
+        "kind": "vstack",
+        "children": [
+          {
+            "kind": "text",
+            "value": "Sunny, 22°C"
+          },
+          {
+            "kind": "button",
+            "label": "Refresh",
+            "actionId": "refresh"
+          }
+        ]
+      }
+    }
+  },
+  "actions": [
+    {
+      "id": "refresh",
+      "label": "Refresh"
+    }
+  ],
+  "freshness": {
+    "state": "fresh",
+    "observedAt": "2026-09-17T11:59:00Z"
+  },
+  "ttl": {
+    "expiresAt": "2026-09-17T13:00:00Z"
+  }
+}

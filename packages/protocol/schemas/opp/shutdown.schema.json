@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omniboard.dev/protocol/schemas/opp/shutdown.schema.json",
+  "title": "OppShutdownParams",
+  "description": "Params for OPP method shutdown.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "reason": {
+      "type": "string"
+    }
+  }
+}
