@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omniboard.dev/protocol/schemas/sync/board-crdt-state.schema.json",
+  "title": "BoardCrdtState",
+  "description": "Board CRDT persisted state shape only. Merge algebra is defined in a later RFC.",
+  "type": "object",
+  "required": ["id", "clock", "tombstones"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "clock": {
+      "type": "object",
+      "description": "Opaque logical clock map for CRDT participants.",
+      "additionalProperties": {
+        "type": "integer",
+        "minimum": 0
+      }
+    },
+    "tombstones": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "Identifiers of removed board elements."
+    }
+  }
+}

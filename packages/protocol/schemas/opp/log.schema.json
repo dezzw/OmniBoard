@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omniboard.dev/protocol/schemas/opp/log.schema.json",
+  "title": "OppLogParams",
+  "description": "Params for OPP notification $/log.",
+  "type": "object",
+  "required": ["level", "message"],
+  "additionalProperties": false,
+  "properties": {
+    "level": {
+      "type": "string",
+      "enum": ["trace", "debug", "info", "warn", "error"]
+    },
+    "message": {
+      "type": "string"
+    },
+    "fields": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "params": {
+    "id": "weather.home:bad id"
+  },
+  "result": {
+    "id": "weather.home:bad id",
+    "type": "weather.current",
+    "revision": 0,
+    "updatedAt": "2026-09-17T12:00:00Z",
+    "providerInstanceId": "weather.home",
+    "payload": {},
+    "render": {
+      "schemaVersion": 1,
+      "surfaces": {}
+    },
+    "actions": [],
+    "freshness": {
+      "state": "unknown"
+    }
+  }
+}

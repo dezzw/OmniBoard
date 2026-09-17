@@ -1,0 +1,22 @@
+{
+  "id": "home",
+  "schemaVersion": 1,
+  "columns": {
+    "phone": 2,
+    "pad": 4
+  },
+  "widgets": [
+    {
+      "instanceId": "w-weather-1",
+      "itemId": "weather.home:current",
+      "size": "medium",
+      "order": "a0"
+    },
+    {
+      "instanceId": "w-calendar-1",
+      "itemId": "calendar.personal:today",
+      "size": "small",
+      "order": "a1"
+    }
+  ]
+}

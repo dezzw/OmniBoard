@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omniboard.dev/protocol/schemas/opp/actions-execute.schema.json",
+  "title": "OppActionsExecute",
+  "description": "Request/result shapes for OPP method actions/execute.",
+  "oneOf": [
+    { "$ref": "#/$defs/params" },
+    { "$ref": "#/$defs/result" }
+  ],
+  "$defs": {
+    "params": {
+      "type": "object",
+      "required": ["itemId", "actionId", "idempotencyKey"],
+      "additionalProperties": false,
+      "properties": {
+        "itemId": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9._-]+:[A-Za-z0-9._-]+$"
+        },
+        "actionId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "idempotencyKey": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "result": {
+      "type": "object",
+      "required": ["status"],
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["ok", "error", "interactionRequired"]
+        },
+        "interaction": {
+          "type": "string",
+          "enum": ["confirm", "input", "oauth"],
+          "description": "Present when status is interactionRequired."
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "if": {
+        "properties": { "status": { "const": "interactionRequired" } },
+        "required": ["status"]
+      },
+      "then": {
+        "required": ["interaction"]
+      }
+    }
+  }
+}

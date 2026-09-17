@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omniboard.dev/protocol/schemas/opp/initialized.schema.json",
+  "title": "OppInitializedResult",
+  "description": "Result for OPP method initialized.",
+  "type": "object",
+  "required": ["capabilities", "schemaVersions"],
+  "additionalProperties": false,
+  "properties": {
+    "capabilities": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "schemaVersions": {
+      "type": "object",
+      "description": "Schema versions the Provider speaks, keyed by schema name.",
+      "additionalProperties": {
+        "type": "integer",
+        "minimum": 1
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omniboard.dev/protocol/schemas/board/board-surface.schema.json",
+  "title": "BoardSurface",
+  "description": "Layout surface returned by client board/get. Does not embed Items. Widget sizes: small 1x1, medium 2x1, large 2x2.",
+  "type": "object",
+  "required": ["id", "schemaVersion", "columns", "widgets"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "schemaVersion": {
+      "const": 1
+    },
+    "columns": {
+      "type": "object",
+      "required": ["phone", "pad"],
+      "additionalProperties": false,
+      "properties": {
+        "phone": { "const": 2 },
+        "pad": { "const": 4 }
+      }
+    },
+    "widgets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["instanceId", "itemId", "size", "order"],
+        "additionalProperties": false,
+        "properties": {
+          "instanceId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "itemId": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9._-]+:[A-Za-z0-9._-]+$"
+          },
+          "size": {
+            "type": "string",
+            "enum": ["small", "medium", "large"]
+          },
+          "order": {
+            "type": "string",
+            "description": "Lexicographic ordering key within the board grid."
+          }
+        }
+      }
+    }
+  }
+}

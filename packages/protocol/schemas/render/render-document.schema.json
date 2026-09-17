@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omniboard.dev/protocol/schemas/render/render-document.schema.json",
+  "title": "RenderDocument",
+  "description": "Declarative Render IR attached to an Item. UI renderers consume this document only; they never execute Provider-supplied SwiftUI or HTML.",
+  "type": "object",
+  "required": ["schemaVersion", "surfaces"],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "type": "integer",
+      "const": 1,
+      "description": "Phase 0 accepted set is {1}. Clients must reject other versions with unsupportedSchemaVersion."
+    },
+    "surfaces": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "widgetSmall": { "$ref": "node.schema.json" },
+        "widgetMedium": { "$ref": "node.schema.json" },
+        "widgetLarge": { "$ref": "node.schema.json" },
+        "liveActivity": { "$ref": "node.schema.json" },
+        "menuBar": { "$ref": "node.schema.json" },
+        "default": { "$ref": "node.schema.json" }
+      }
+    }
+  }
+}

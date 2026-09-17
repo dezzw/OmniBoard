@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omniboard.dev/protocol/schemas/item/item.schema.json",
+  "title": "Item",
+  "description": "Normalized information unit stored by Core. Core must not branch on payload keys; payload is opaque domain data from the Provider.",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "revision",
+    "updatedAt",
+    "providerInstanceId",
+    "payload",
+    "render",
+    "actions",
+    "freshness"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._-]+:[A-Za-z0-9._-]+$",
+      "description": "Composite id: providerInstanceId:localId"
+    },
+    "type": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Opaque provider-defined type string."
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "providerInstanceId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._-]+$"
+    },
+    "payload": {
+      "type": "object",
+      "description": "Opaque domain payload. Core must not branch on keys or interpret values.",
+      "additionalProperties": true
+    },
+    "render": {
+      "$ref": "../render/render-document.schema.json"
+    },
+    "actions": {
+      "type": "array",
+      "items": { "$ref": "action.schema.json" }
+    },
+    "freshness": {
+      "type": "object",
+      "required": ["state"],
+      "additionalProperties": false,
+      "properties": {
+        "state": {
+          "type": "string",
+          "enum": ["fresh", "stale", "unknown"]
+        },
+        "observedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "ttl": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "expiresAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  }
+}

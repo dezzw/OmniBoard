@@ -1,0 +1,9 @@
+{
+  "id": "home",
+  "schemaVersion": 2,
+  "columns": {
+    "phone": 2,
+    "pad": 4
+  },
+  "widgets": []
+}
