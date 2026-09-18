@@ -45,9 +45,11 @@ struct ServiceView: View {
         HStack(alignment: .top) {
             VStack(alignment: .leading, spacing: 4) {
                 Text(title)
+                    .accessibilityLabel(title)
                 Text(subtitle)
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
+                    .accessibilityLabel(subtitle)
             }
 
             Spacer(minLength: 16)

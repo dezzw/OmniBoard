@@ -4,8 +4,32 @@ import XCTest
 final class ScreenContentTests: XCTestCase {
     @MainActor
     func testBoardShowsHardcodedWeatherStub() {
-        let texts = ViewTextExtractor.texts(from: BoardView())
-        let combined = texts.joined(separator: " ")
+        let data = BoardSampleData.preview
+        let combined = [
+            ViewTextExtractor.texts(from: WeatherStubCard(
+                temperature: data.temperature,
+                location: data.location,
+                status: data.weatherStatus
+            )),
+            ViewTextExtractor.texts(from: LoadProgressCard(
+                progress: data.loadProgress,
+                value: data.loadValue,
+                label: data.loadLabel
+            )),
+            ViewTextExtractor.texts(from: TimerCard(
+                opensInLabel: data.opensInLabel,
+                time: data.timerDisplay,
+                expiryCaption: data.timerExpiryCaption
+            )),
+            ViewTextExtractor.texts(from: CopyProgressCard(
+                label: data.copyLabel,
+                progress: data.copyProgress,
+                progressText: data.copyProgressText,
+                caption: data.copyCaption
+            )),
+        ]
+        .flatMap { $0 }
+        .joined(separator: " ")
 
         XCTAssertTrue(
             combined.contains("Toronto"),
@@ -39,6 +63,13 @@ final class ScreenContentTests: XCTestCase {
             combined.contains("62%"),
             "Board should show 62%. Found: \(combined)"
         )
+
+        for expected in BoardScreenCopy.displayedStrings(from: data) {
+            XCTAssertTrue(
+                combined.contains(expected),
+                "Board card content should include \(expected). Found: \(combined)"
+            )
+        }
     }
 
     @MainActor

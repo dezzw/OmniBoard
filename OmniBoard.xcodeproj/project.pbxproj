@@ -22,6 +22,7 @@
 		C80000000000000D /* LoadProgressCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C800000000000024 /* LoadProgressCard.swift */; };
 		C80000000000000E /* TimerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C800000000000025 /* TimerCard.swift */; };
 		C80000000000000F /* CopyProgressCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C800000000000026 /* CopyProgressCard.swift */; };
+		C800000000000010 /* BoardScreenCopy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C800000000000027 /* BoardScreenCopy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		C800000000000024 /* LoadProgressCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadProgressCard.swift; sourceTree = "<group>"; };
 		C800000000000025 /* TimerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCard.swift; sourceTree = "<group>"; };
 		C800000000000026 /* CopyProgressCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyProgressCard.swift; sourceTree = "<group>"; };
+		C800000000000027 /* BoardScreenCopy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardScreenCopy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 				C800000000000024 /* LoadProgressCard.swift */,
 				C800000000000025 /* TimerCard.swift */,
 				C800000000000026 /* CopyProgressCard.swift */,
+				C800000000000027 /* BoardScreenCopy.swift */,
 			);
 			path = Board;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				C80000000000000D /* LoadProgressCard.swift in Sources */,
 				C80000000000000E /* TimerCard.swift in Sources */,
 				C80000000000000F /* CopyProgressCard.swift in Sources */,
+				C800000000000010 /* BoardScreenCopy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

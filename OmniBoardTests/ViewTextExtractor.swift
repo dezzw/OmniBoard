@@ -16,7 +16,7 @@ enum ViewTextExtractor {
 
     private static func extractTexts<V: View>(from view: V) -> [String] {
         let controller = UIHostingController(rootView: view)
-        let window = UIWindow(frame: CGRect(x: 0, y: 0, width: 393, height: 852))
+        let window = UIWindow(frame: CGRect(x: 0, y: 0, width: 393, height: 2_000))
         window.rootViewController = controller
         window.makeKeyAndVisible()
 
@@ -24,6 +24,8 @@ enum ViewTextExtractor {
         _ = controller.sizeThatFits(in: window.bounds.size)
         controller.view.setNeedsLayout()
         controller.view.layoutIfNeeded()
+
+        layoutScrollViews(in: controller.view)
 
         UIGraphicsBeginImageContext(window.bounds.size)
         controller.view.drawHierarchy(in: window.bounds, afterScreenUpdates: true)
@@ -36,8 +38,24 @@ enum ViewTextExtractor {
 
         controller.view.setNeedsLayout()
         controller.view.layoutIfNeeded()
+        layoutScrollViews(in: controller.view)
 
         return collectTexts(from: controller.view)
+    }
+
+    private static func layoutScrollViews(in view: UIView) {
+        if let scrollView = view as? UIScrollView {
+            scrollView.layoutIfNeeded()
+            let offsets: [CGFloat] = [0, scrollView.contentSize.height / 2, max(0, scrollView.contentSize.height - scrollView.bounds.height)]
+            for offset in offsets {
+                scrollView.setContentOffset(CGPoint(x: 0, y: offset), animated: false)
+                scrollView.layoutIfNeeded()
+            }
+        }
+
+        for subview in view.subviews {
+            layoutScrollViews(in: subview)
+        }
     }
 
     private static func collectTexts(from view: UIView) -> [String] {
@@ -91,6 +109,8 @@ enum ViewTextExtractor {
             for section in 0..<collectionView.numberOfSections {
                 for item in 0..<collectionView.numberOfItems(inSection: section) {
                     let indexPath = IndexPath(item: item, section: section)
+                    collectionView.scrollToItem(at: indexPath, at: .centeredVertically, animated: false)
+                    collectionView.layoutIfNeeded()
                     if let cell = collectionView.cellForItem(at: indexPath) {
                         result.append(contentsOf: collectTexts(from: cell.contentView))
                     }

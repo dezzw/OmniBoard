@@ -11,13 +11,16 @@ struct TimerCard: View {
                 Text(opensInLabel)
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
+                    .accessibilityLabel(opensInLabel)
 
                 Text(time)
                     .font(.system(size: 48, weight: .bold))
+                    .accessibilityLabel(time)
 
                 Text(expiryCaption)
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
+                    .accessibilityLabel(expiryCaption)
             }
         }
     }

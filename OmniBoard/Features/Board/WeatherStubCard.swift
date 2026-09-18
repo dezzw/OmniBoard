@@ -14,10 +14,12 @@ struct WeatherStubCard: View {
 
                 Text(temperature)
                     .font(.system(size: 34, weight: .bold))
+                    .accessibilityLabel(temperature)
 
                 Text(location)
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
+                    .accessibilityLabel(location)
 
                 Spacer(minLength: 8)
 

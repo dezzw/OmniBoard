@@ -12,12 +12,14 @@ struct CopyProgressCard: View {
                 HStack {
                     Text(label)
                         .font(.body.weight(.semibold))
+                        .accessibilityLabel(label)
 
                     Spacer()
 
                     Text(progressText)
                         .font(.body.weight(.semibold))
                         .foregroundStyle(Color.accentColor)
+                        .accessibilityLabel(progressText)
                 }
 
                 GeometryReader { geometry in
@@ -36,6 +38,7 @@ struct CopyProgressCard: View {
                 Text(caption)
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
+                    .accessibilityLabel(caption)
             }
         }
     }
