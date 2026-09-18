@@ -15,12 +15,38 @@ jobs:
       - name: Show Xcode version
         run: xcodebuild -version
 
+      - name: Select iOS Simulator
+        id: simulator
+        run: |
+          UDID=$(python3 <<'PY'
+          import json
+          import subprocess
+
+          output = subprocess.check_output(
+              ["xcrun", "simctl", "list", "devices", "available", "-j"],
+              text=True,
+          )
+          devices_by_runtime = json.loads(output)["devices"]
+
+          for runtime in sorted(devices_by_runtime.keys(), reverse=True):
+              if "iOS" not in runtime:
+                  continue
+              for device in devices_by_runtime[runtime]:
+                  if device.get("isAvailable") and "iPhone" in device.get("name", ""):
+                      print(device["udid"])
+                      raise SystemExit
+          raise SystemExit("No available iPhone simulator found")
+          PY
+          )
+          echo "udid=$UDID" >> "$GITHUB_OUTPUT"
+          echo "Using simulator: $UDID"
+
       - name: Build and test for iOS Simulator
         run: |
           xcodebuild \
             -project OmniBoard.xcodeproj \
             -scheme OmniBoard \
-            -destination 'platform=iOS Simulator,name=iPhone 16' \
+            -destination "platform=iOS Simulator,id=${{ steps.simulator.outputs.udid }}" \
             -configuration Debug \
             CODE_SIGNING_ALLOWED=NO \
             build test

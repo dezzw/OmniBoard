@@ -16,6 +16,12 @@
 		C800000000000007 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C800000000000017 /* Assets.xcassets */; };
 		C800000000000008 /* ScreenContentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C800000000000021 /* ScreenContentTests.swift */; };
 		C800000000000009 /* ViewTextExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C800000000000022 /* ViewTextExtractor.swift */; };
+		C80000000000000A /* BoardSampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C800000000000018 /* BoardSampleData.swift */; };
+		C80000000000000B /* BoardCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C800000000000019 /* BoardCard.swift */; };
+		C80000000000000C /* WeatherStubCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C800000000000023 /* WeatherStubCard.swift */; };
+		C80000000000000D /* LoadProgressCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C800000000000024 /* LoadProgressCard.swift */; };
+		C80000000000000E /* TimerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C800000000000025 /* TimerCard.swift */; };
+		C80000000000000F /* CopyProgressCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C800000000000026 /* CopyProgressCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +46,12 @@
 		C800000000000020 /* OmniBoardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OmniBoardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C800000000000021 /* ScreenContentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenContentTests.swift; sourceTree = "<group>"; };
 		C800000000000022 /* ViewTextExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTextExtractor.swift; sourceTree = "<group>"; };
+		C800000000000018 /* BoardSampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardSampleData.swift; sourceTree = "<group>"; };
+		C800000000000019 /* BoardCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardCard.swift; sourceTree = "<group>"; };
+		C800000000000023 /* WeatherStubCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherStubCard.swift; sourceTree = "<group>"; };
+		C800000000000024 /* LoadProgressCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadProgressCard.swift; sourceTree = "<group>"; };
+		C800000000000025 /* TimerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCard.swift; sourceTree = "<group>"; };
+		C800000000000026 /* CopyProgressCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyProgressCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				C800000000000016 /* StatusPill.swift */,
+				C800000000000019 /* BoardCard.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -121,6 +134,11 @@
 			isa = PBXGroup;
 			children = (
 				C800000000000013 /* BoardView.swift */,
+				C800000000000018 /* BoardSampleData.swift */,
+				C800000000000023 /* WeatherStubCard.swift */,
+				C800000000000024 /* LoadProgressCard.swift */,
+				C800000000000025 /* TimerCard.swift */,
+				C800000000000026 /* CopyProgressCard.swift */,
 			);
 			path = Board;
 			sourceTree = "<group>";
@@ -246,6 +264,12 @@
 				C800000000000004 /* ServiceView.swift in Sources */,
 				C800000000000005 /* SettingsView.swift in Sources */,
 				C800000000000006 /* StatusPill.swift in Sources */,
+				C80000000000000A /* BoardSampleData.swift in Sources */,
+				C80000000000000B /* BoardCard.swift in Sources */,
+				C80000000000000C /* WeatherStubCard.swift in Sources */,
+				C80000000000000D /* LoadProgressCard.swift in Sources */,
+				C80000000000000E /* TimerCard.swift in Sources */,
+				C80000000000000F /* CopyProgressCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
