@@ -5,6 +5,10 @@ struct WeatherStubCard: View {
     let location: String
     let status: String
 
+    var displayedTexts: [String] {
+        [temperature, location, status]
+    }
+
     var body: some View {
         BoardCard {
             VStack(alignment: .leading, spacing: 8) {
@@ -14,12 +18,10 @@ struct WeatherStubCard: View {
 
                 Text(temperature)
                     .font(.system(size: 34, weight: .bold))
-                    .accessibilityLabel(temperature)
 
                 Text(location)
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
-                    .accessibilityLabel(location)
 
                 Spacer(minLength: 8)
 

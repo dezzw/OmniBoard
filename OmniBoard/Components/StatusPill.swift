@@ -7,7 +7,6 @@ struct StatusPill: View {
         Text(title)
             .font(.subheadline.weight(.medium))
             .foregroundStyle(.green)
-            .accessibilityLabel(title)
     }
 }
 

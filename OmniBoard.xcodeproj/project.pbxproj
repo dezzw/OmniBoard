@@ -15,7 +15,6 @@
 		C800000000000006 /* StatusPill.swift in Sources */ = {isa = PBXBuildFile; fileRef = C800000000000016 /* StatusPill.swift */; };
 		C800000000000007 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C800000000000017 /* Assets.xcassets */; };
 		C800000000000008 /* ScreenContentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C800000000000021 /* ScreenContentTests.swift */; };
-		C800000000000009 /* ViewTextExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C800000000000022 /* ViewTextExtractor.swift */; };
 		C80000000000000A /* BoardSampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C800000000000018 /* BoardSampleData.swift */; };
 		C80000000000000B /* BoardCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C800000000000019 /* BoardCard.swift */; };
 		C80000000000000C /* WeatherStubCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C800000000000023 /* WeatherStubCard.swift */; };
@@ -46,7 +45,6 @@
 		C800000000000017 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C800000000000020 /* OmniBoardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OmniBoardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C800000000000021 /* ScreenContentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenContentTests.swift; sourceTree = "<group>"; };
-		C800000000000022 /* ViewTextExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTextExtractor.swift; sourceTree = "<group>"; };
 		C800000000000018 /* BoardSampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardSampleData.swift; sourceTree = "<group>"; };
 		C800000000000019 /* BoardCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardCard.swift; sourceTree = "<group>"; };
 		C800000000000023 /* WeatherStubCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherStubCard.swift; sourceTree = "<group>"; };
@@ -99,7 +97,6 @@
 			isa = PBXGroup;
 			children = (
 				C800000000000021 /* ScreenContentTests.swift */,
-				C800000000000022 /* ViewTextExtractor.swift */,
 			);
 			path = OmniBoardTests;
 			sourceTree = "<group>";
@@ -282,7 +279,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C800000000000008 /* ScreenContentTests.swift in Sources */,
-				C800000000000009 /* ViewTextExtractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

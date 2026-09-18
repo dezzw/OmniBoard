@@ -1,6 +1,21 @@
 import SwiftUI
 
 struct ServiceView: View {
+    var displayedTexts: [String] {
+        [
+            "Core",
+            "Storing the board on this iPhone",
+            "Running",
+            "Weather",
+            "Local provider · serving 22°",
+            "Fresh",
+            "Weather source",
+            "Asked for the current temperature. Shown on the Board, the Live Activity, and the island.",
+            "Kept on this iPhone",
+            "Not uploaded",
+        ]
+    }
+
     var body: some View {
         NavigationStack {
             List {
@@ -45,11 +60,9 @@ struct ServiceView: View {
         HStack(alignment: .top) {
             VStack(alignment: .leading, spacing: 4) {
                 Text(title)
-                    .accessibilityLabel(title)
                 Text(subtitle)
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
-                    .accessibilityLabel(subtitle)
             }
 
             Spacer(minLength: 16)

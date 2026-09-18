@@ -5,22 +5,23 @@ struct TimerCard: View {
     let time: String
     let expiryCaption: String
 
+    var displayedTexts: [String] {
+        [opensInLabel, time, expiryCaption]
+    }
+
     var body: some View {
         BoardCard {
             VStack(alignment: .leading, spacing: 8) {
                 Text(opensInLabel)
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
-                    .accessibilityLabel(opensInLabel)
 
                 Text(time)
                     .font(.system(size: 48, weight: .bold))
-                    .accessibilityLabel(time)
 
                 Text(expiryCaption)
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
-                    .accessibilityLabel(expiryCaption)
             }
         }
     }

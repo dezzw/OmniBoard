@@ -5,6 +5,10 @@ struct LoadProgressCard: View {
     let value: String
     let label: String
 
+    var displayedTexts: [String] {
+        [value, label]
+    }
+
     var body: some View {
         BoardCard {
             ZStack {
@@ -19,11 +23,9 @@ struct LoadProgressCard: View {
                 VStack(spacing: 2) {
                     Text(value)
                         .font(.system(size: 28, weight: .bold))
-                        .accessibilityLabel(value)
                     Text(label)
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
-                        .accessibilityLabel(label)
                 }
             }
             .frame(maxWidth: .infinity)

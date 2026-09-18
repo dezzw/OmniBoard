@@ -1,6 +1,19 @@
 import SwiftUI
 
 struct SettingsView: View {
+    var displayedTexts: [String] {
+        [
+            "Appearance",
+            "System",
+            "Accent",
+            "System Blue",
+            "Data",
+            "This iPhone",
+            "Version",
+            "0.1",
+        ]
+    }
+
     var body: some View {
         NavigationStack {
             List {
@@ -23,11 +36,9 @@ struct SettingsView: View {
     private func settingsRow(title: String, value: String) -> some View {
         HStack {
             Text(title)
-                .accessibilityLabel(title)
             Spacer()
             Text(value)
                 .foregroundStyle(.secondary)
-                .accessibilityLabel(value)
         }
     }
 }

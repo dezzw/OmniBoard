@@ -6,20 +6,22 @@ struct CopyProgressCard: View {
     let progressText: String
     let caption: String
 
+    var displayedTexts: [String] {
+        [label, progressText, caption]
+    }
+
     var body: some View {
         BoardCard {
             VStack(alignment: .leading, spacing: 12) {
                 HStack {
                     Text(label)
                         .font(.body.weight(.semibold))
-                        .accessibilityLabel(label)
 
                     Spacer()
 
                     Text(progressText)
                         .font(.body.weight(.semibold))
                         .foregroundStyle(Color.accentColor)
-                        .accessibilityLabel(progressText)
                 }
 
                 GeometryReader { geometry in
@@ -38,7 +40,6 @@ struct CopyProgressCard: View {
                 Text(caption)
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
-                    .accessibilityLabel(caption)
             }
         }
     }
