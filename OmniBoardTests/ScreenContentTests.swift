@@ -2,6 +2,7 @@ import XCTest
 @testable import OmniBoard
 
 final class ScreenContentTests: XCTestCase {
+    @MainActor
     func testBoardShowsHardcodedWeatherStub() {
         let texts = ViewTextExtractor.texts(from: BoardView())
         let combined = texts.joined(separator: " ")
@@ -40,6 +41,7 @@ final class ScreenContentTests: XCTestCase {
         )
     }
 
+    @MainActor
     func testServiceShowsLocalStatusRows() {
         let texts = ViewTextExtractor.texts(from: ServiceView())
         let combined = texts.joined(separator: " ")
@@ -54,6 +56,7 @@ final class ScreenContentTests: XCTestCase {
         )
     }
 
+    @MainActor
     func testSettingsShowsGeneralPreferences() {
         let texts = ViewTextExtractor.texts(from: SettingsView())
         let combined = texts.joined(separator: " ")
