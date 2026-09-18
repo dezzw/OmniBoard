@@ -23,9 +23,11 @@ struct SettingsView: View {
     private func settingsRow(title: String, value: String) -> some View {
         HStack {
             Text(title)
+                .accessibilityLabel(title)
             Spacer()
             Text(value)
                 .foregroundStyle(.secondary)
+                .accessibilityLabel(value)
         }
     }
 }

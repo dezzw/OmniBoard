@@ -22,7 +22,7 @@
 		C80000000000000D /* LoadProgressCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C800000000000024 /* LoadProgressCard.swift */; };
 		C80000000000000E /* TimerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C800000000000025 /* TimerCard.swift */; };
 		C80000000000000F /* CopyProgressCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C800000000000026 /* CopyProgressCard.swift */; };
-		C800000000000010 /* BoardScreenCopy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C800000000000027 /* BoardScreenCopy.swift */; };
+		C800000000000028 /* BoardScreenCopy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C800000000000027 /* BoardScreenCopy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -273,7 +273,7 @@
 				C80000000000000D /* LoadProgressCard.swift in Sources */,
 				C80000000000000E /* TimerCard.swift in Sources */,
 				C80000000000000F /* CopyProgressCard.swift in Sources */,
-				C800000000000010 /* BoardScreenCopy.swift in Sources */,
+				C800000000000028 /* BoardScreenCopy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
