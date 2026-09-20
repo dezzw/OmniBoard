@@ -3,22 +3,19 @@
     {
       "id": "weather.home:current",
       "type": "weather.current",
+      "kind": "metric",
       "revision": 4,
-      "updatedAt": "2026-09-17T12:05:00Z",
+      "updatedAt": "2026-09-20T08:05:00Z",
       "providerInstanceId": "weather.home",
+      "presentation": {
+        "title": "Temperature",
+        "value": "23",
+        "unit": "°C",
+        "trend": "flat"
+      },
       "payload": {
         "tempC": 23
       },
-      "render": {
-        "schemaVersion": 1,
-        "surfaces": {
-          "widgetSmall": {
-            "kind": "text",
-            "value": "23°"
-          }
-        }
-      },
-      "actions": [],
       "freshness": {
         "state": "fresh"
       }

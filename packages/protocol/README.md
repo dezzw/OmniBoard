@@ -9,6 +9,7 @@ packages/protocol/
   README.md
   schemas/
     item/item.schema.json
+    item/presentation.schema.json
     item/action.schema.json
     opp/jsonrpc.schema.json
     opp/initialize.schema.json
@@ -20,8 +21,6 @@ packages/protocol/
     opp/shutdown.schema.json
     opp/log.schema.json
     opp/manifest.schema.json
-    render/render-document.schema.json
-    render/node.schema.json
     board/board-surface.schema.json
     client/methods.schema.json
     sync/item-lww.schema.json
@@ -32,12 +31,25 @@ packages/protocol/
 
 ## 核心约束
 
-- **Core 无领域知识**：不得根据 `Item.payload` 的键分支或解释语义；payload 为 Provider 不透明对象。
+- **Core 无领域知识**：不得根据 `Item.type`、`Item.kind` 或 `Item.payload` 的键分支或解释语义；payload 为 Provider 不透明对象，**不得**用于布局决策。
+- **Kind 是一等公民**：`Item.kind` 枚举 `notice | metric | progress | countdown`；`presentation` 由 kind 驱动，无自由布局树。
+- **统一 Presentation**：同一 `presentation` 供 Board、Widget、Live Activity、Dynamic Island 使用；密度裁剪由渲染器负责，不在 schema DSL 中表达。
 - **Provider 进程外**：通过 OPP（JSON-RPC 2.0）通信；默认通道为 **stdio + NDJSON**。
-- **UI 只渲染 Render IR**：Client 与 Widget 不得执行 Provider 提供的 SwiftUI/HTML。
 - **OPP 方法名（精确）**：`initialize`、`initialized`、`items/snapshot`、`items/changed`、`actions/execute`、`shutdown`、`provider/status`、`$/log`。
 - **Client Phase 2 方法**：`board/get`（仅 BoardSurface，无嵌入 Item）、`items/get`、`events/subscribe`（仅 `item.updated` / `item.removed`）。`actions/execute` 属于 OPP，不在 Client 方法集内。
 - **Sync schema**：`sync/item-lww` 与 `sync/board-crdt-state` 仅描述状态形状；合并代数由后续 RFC 定义。
+
+## Item 与 Presentation
+
+| 字段 | 说明 |
+|------|------|
+| `schemaVersion` | 可选，省略视为 `1`；Phase 0 接受集 `{1}` |
+| `kind` | `notice`、`metric`、`progress`、`countdown` |
+| `presentation` | 共享字段 `title`（必填）、`subtitle?`、`symbol?`、`badge?`；kind 专有字段见 `presentation.schema.json` |
+| `actions?` | 仅 App default surface；`Action` 保持 `{ id, label }` |
+| `payload` | 必须为 object；Core 不得读取其键做布局 |
+
+**已移除**：自由 Render IR 树（`render` 字段、`render-document`、`node` schema 及对应 fixtures）。
 
 ## Fixtures 为真相源
 
@@ -47,12 +59,6 @@ packages/protocol/
 2. 拒绝全部 **invalid** fixtures（每条 invalid 对应一条真实 schema 规则）。
 
 本 Phase 0 PR **不实现** 解析器或校验 CLI；仅交付 schema 与 fixtures。
-
-## Render IR 要点
-
-- `render-document.schemaVersion` Phase 0 接受集为 `{1}`；否则 Client 返回 `unsupportedSchemaVersion`。
-- `surfaces` 键仅允许：`widgetSmall`、`widgetMedium`、`widgetLarge`、`liveActivity`、`menuBar`、`default`。
-- `Node.kind` 为判别联合；`button` **仅** 允许出现在 `default` surface（见 schema 描述与 invalid fixture）。
 
 ## Board 布局
 

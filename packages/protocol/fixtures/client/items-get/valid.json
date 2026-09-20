@@ -5,22 +5,18 @@
   "result": {
     "id": "weather.home:current",
     "type": "weather.current",
+    "kind": "metric",
     "revision": 3,
-    "updatedAt": "2026-09-17T12:00:00Z",
+    "updatedAt": "2026-09-20T08:00:00Z",
     "providerInstanceId": "weather.home",
+    "presentation": {
+      "title": "Temperature",
+      "value": "22",
+      "unit": "°C"
+    },
     "payload": {
       "tempC": 22
     },
-    "render": {
-      "schemaVersion": 1,
-      "surfaces": {
-        "default": {
-          "kind": "text",
-          "value": "22°C"
-        }
-      }
-    },
-    "actions": [],
     "freshness": {
       "state": "fresh"
     }

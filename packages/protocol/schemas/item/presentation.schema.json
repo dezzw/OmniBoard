@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omniboard.dev/protocol/schemas/item/presentation.schema.json",
+  "title": "Presentation",
+  "description": "Kind-driven presentation data. No layout tree; the same Presentation feeds Board, Widget, Live Activity, and Dynamic Island. Density cropping is renderer-side.",
+  "$defs": {
+    "sharedProperties": {
+      "title": {
+        "type": "string",
+        "minLength": 1
+      },
+      "subtitle": {
+        "type": "string"
+      },
+      "symbol": {
+        "type": "string"
+      },
+      "badge": {
+        "type": "string"
+      }
+    },
+    "notice": {
+      "type": "object",
+      "required": ["title"],
+      "additionalProperties": false,
+      "properties": {
+        "title": { "$ref": "#/$defs/sharedProperties/title" },
+        "subtitle": { "$ref": "#/$defs/sharedProperties/subtitle" },
+        "symbol": { "$ref": "#/$defs/sharedProperties/symbol" },
+        "badge": { "$ref": "#/$defs/sharedProperties/badge" },
+        "body": {
+          "type": "string"
+        }
+      }
+    },
+    "metric": {
+      "type": "object",
+      "required": ["title", "value"],
+      "additionalProperties": false,
+      "properties": {
+        "title": { "$ref": "#/$defs/sharedProperties/title" },
+        "subtitle": { "$ref": "#/$defs/sharedProperties/subtitle" },
+        "symbol": { "$ref": "#/$defs/sharedProperties/symbol" },
+        "badge": { "$ref": "#/$defs/sharedProperties/badge" },
+        "value": {
+          "type": "string",
+          "minLength": 1
+        },
+        "unit": {
+          "type": "string"
+        },
+        "trend": {
+          "type": "string",
+          "enum": ["up", "down", "flat"]
+        }
+      }
+    },
+    "progressValue": {
+      "oneOf": [
+        {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "type": "object",
+          "required": ["current", "total"],
+          "additionalProperties": false,
+          "properties": {
+            "current": {
+              "type": "number",
+              "minimum": 0
+            },
+            "total": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            }
+          }
+        }
+      ]
+    },
+    "progress": {
+      "type": "object",
+      "required": ["title", "value"],
+      "additionalProperties": false,
+      "properties": {
+        "title": { "$ref": "#/$defs/sharedProperties/title" },
+        "subtitle": { "$ref": "#/$defs/sharedProperties/subtitle" },
+        "symbol": { "$ref": "#/$defs/sharedProperties/symbol" },
+        "badge": { "$ref": "#/$defs/sharedProperties/badge" },
+        "value": { "$ref": "#/$defs/progressValue" },
+        "label": {
+          "type": "string"
+        },
+        "style": {
+          "type": "string",
+          "enum": ["bar", "circular"],
+          "default": "bar",
+          "description": "Defaults to bar. Former gauge maps to progress with style circular."
+        }
+      }
+    },
+    "countdown": {
+      "type": "object",
+      "required": ["title", "targetAt"],
+      "additionalProperties": false,
+      "properties": {
+        "title": { "$ref": "#/$defs/sharedProperties/title" },
+        "subtitle": { "$ref": "#/$defs/sharedProperties/subtitle" },
+        "symbol": { "$ref": "#/$defs/sharedProperties/symbol" },
+        "badge": { "$ref": "#/$defs/sharedProperties/badge" },
+        "targetAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "label": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

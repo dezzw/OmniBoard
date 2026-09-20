@@ -5,15 +5,15 @@
   "result": {
     "id": "weather.home:bad id",
     "type": "weather.current",
+    "kind": "metric",
     "revision": 0,
-    "updatedAt": "2026-09-17T12:00:00Z",
+    "updatedAt": "2026-09-20T08:00:00Z",
     "providerInstanceId": "weather.home",
-    "payload": {},
-    "render": {
-      "schemaVersion": 1,
-      "surfaces": {}
+    "presentation": {
+      "title": "Temperature",
+      "value": "22"
     },
-    "actions": [],
+    "payload": {},
     "freshness": {
       "state": "unknown"
     }

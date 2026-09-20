@@ -26,7 +26,7 @@
 ## 兼容性
 
 - **OPP**：遵循 MAJOR.MINOR 语义；不兼容变更必须递增 MAJOR。
-- **Render IR**：渲染器实现 schemaVersion N 与 N-1；Core 在 Phase 0 仅接受 `{1}`。
+- **Item / Presentation**：渲染器实现 `Item.schemaVersion` N 与 N-1；Core 在 Phase 0 仅接受 `{1}`（省略字段视为 1）。
 - 说明对现有 fixtures 与 golden 测试的影响。
 
 ## fixtures

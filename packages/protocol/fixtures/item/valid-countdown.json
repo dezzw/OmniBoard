@@ -1,0 +1,25 @@
+{
+  "id": "calendar.personal:standup",
+  "type": "calendar.event",
+  "kind": "countdown",
+  "revision": 0,
+  "updatedAt": "2026-09-20T08:00:00Z",
+  "providerInstanceId": "calendar.personal",
+  "presentation": {
+    "title": "Standup",
+    "targetAt": "2026-09-20T08:30:00Z",
+    "label": "Starts in 30 min"
+  },
+  "payload": {
+    "eventId": "evt-42"
+  },
+  "actions": [
+    {
+      "id": "join",
+      "label": "Join"
+    }
+  ],
+  "freshness": {
+    "state": "fresh"
+  }
+}

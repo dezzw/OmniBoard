@@ -1,15 +1,15 @@
 {
   "id": "weather.home:current",
   "type": "weather.current",
+  "kind": "metric",
   "revision": 0,
-  "updatedAt": "2026-09-17T12:00:00Z",
+  "updatedAt": "2026-09-20T08:00:00Z",
   "providerInstanceId": "weather.home",
-  "payload": "not-an-object",
-  "render": {
-    "schemaVersion": 1,
-    "surfaces": {}
+  "presentation": {
+    "title": "Temperature",
+    "value": "22"
   },
-  "actions": [],
+  "payload": "not-an-object",
   "freshness": {
     "state": "unknown"
   }

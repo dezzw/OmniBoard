@@ -1,0 +1,21 @@
+{
+  "id": "alerts.home:doorbell",
+  "type": "alerts.doorbell",
+  "kind": "notice",
+  "revision": 1,
+  "updatedAt": "2026-09-20T08:00:00Z",
+  "providerInstanceId": "alerts.home",
+  "presentation": {
+    "title": "Front door",
+    "subtitle": "Ring detected",
+    "symbol": "bell.fill",
+    "body": "Someone is at the door."
+  },
+  "payload": {
+    "cameraId": "front-porch"
+  },
+  "freshness": {
+    "state": "fresh",
+    "observedAt": "2026-09-20T07:59:50Z"
+  }
+}

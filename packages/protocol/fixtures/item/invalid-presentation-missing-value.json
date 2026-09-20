@@ -1,5 +1,5 @@
 {
-  "id": "weather@home:current",
+  "id": "weather.home:current",
   "type": "weather.current",
   "kind": "metric",
   "revision": 0,
@@ -7,7 +7,7 @@
   "providerInstanceId": "weather.home",
   "presentation": {
     "title": "Temperature",
-    "value": "22"
+    "unit": "°C"
   },
   "payload": {},
   "freshness": {

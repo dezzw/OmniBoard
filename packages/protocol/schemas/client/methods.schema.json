@@ -6,10 +6,10 @@
   "type": "object",
   "additionalProperties": false,
   "properties": {
-    "acceptedRenderSchemaVersions": {
+    "acceptedItemSchemaVersions": {
       "type": "array",
       "const": [1],
-      "description": "Phase 0 accepted Render IR schemaVersion set."
+      "description": "Phase 0 accepted Item schemaVersion set. Omitted Item.schemaVersion is treated as 1."
     },
     "errors": {
       "type": "object",
@@ -17,7 +17,7 @@
       "properties": {
         "unsupportedSchemaVersion": {
           "type": "object",
-          "description": "Returned when Item.render.schemaVersion is not in acceptedRenderSchemaVersions.",
+          "description": "Returned when Item.schemaVersion is present and not in acceptedItemSchemaVersions.",
           "required": ["code", "message"],
           "properties": {
             "code": { "const": "unsupportedSchemaVersion" },
@@ -50,7 +50,7 @@
         },
         "items/get": {
           "type": "object",
-          "description": "Fetches a single Item by id.",
+          "description": "Fetches a single Item by id. Result uses kind + presentation (no render tree).",
           "required": ["params", "result"],
           "properties": {
             "params": {

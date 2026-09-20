@@ -1,9 +1,0 @@
-{
-  "schemaVersion": 99,
-  "surfaces": {
-    "widgetSmall": {
-      "kind": "text",
-      "value": "22°"
-    }
-  }
-}

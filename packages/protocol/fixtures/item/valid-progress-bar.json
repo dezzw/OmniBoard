@@ -1,0 +1,23 @@
+{
+  "id": "tasks.work:sprint",
+  "type": "tasks.sprint",
+  "kind": "progress",
+  "revision": 2,
+  "updatedAt": "2026-09-20T08:00:00Z",
+  "providerInstanceId": "tasks.work",
+  "presentation": {
+    "title": "Sprint 12",
+    "value": {
+      "current": 7,
+      "total": 10
+    },
+    "label": "7 of 10 done",
+    "style": "bar"
+  },
+  "payload": {
+    "sprintId": "2026-w38"
+  },
+  "freshness": {
+    "state": "fresh"
+  }
+}
