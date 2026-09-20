@@ -22,8 +22,8 @@
 		C80000000000000E /* BoardWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C800000000000025 /* BoardWidgetView.swift */; };
 		C80000000000000F /* MetricWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C800000000000026 /* MetricWidgetView.swift */; };
 		C800000000000028 /* NoticeWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C800000000000027 /* NoticeWidgetView.swift */; };
-		C800000000000029 /* ProgressWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C800000000000036 /* ProgressWidgetView.swift */; };
-		C800000000000030 /* CountdownWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C800000000000037 /* CountdownWidgetView.swift */; };
+		C800000000000038 /* ProgressWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C800000000000036 /* ProgressWidgetView.swift */; };
+		C800000000000039 /* CountdownWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C800000000000037 /* CountdownWidgetView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -301,8 +301,8 @@
 				C80000000000000E /* BoardWidgetView.swift in Sources */,
 				C80000000000000F /* MetricWidgetView.swift in Sources */,
 				C800000000000028 /* NoticeWidgetView.swift in Sources */,
-				C800000000000029 /* ProgressWidgetView.swift in Sources */,
-				C800000000000030 /* CountdownWidgetView.swift in Sources */,
+				C800000000000038 /* ProgressWidgetView.swift in Sources */,
+				C800000000000039 /* CountdownWidgetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
