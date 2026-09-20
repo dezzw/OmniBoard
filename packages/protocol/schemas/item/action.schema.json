@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omniboard.dev/protocol/schemas/item/action.schema.json",
+  "title": "Action",
+  "description": "Thin action descriptor for App default surface only. Execution is routed through OPP actions/execute, not client methods in Phase 2.",
+  "type": "object",
+  "required": ["id", "label"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "label": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

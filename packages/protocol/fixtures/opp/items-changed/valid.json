@@ -1,0 +1,27 @@
+{
+  "items": [
+    {
+      "id": "weather.home:current",
+      "type": "weather.current",
+      "kind": "metric",
+      "revision": 4,
+      "updatedAt": "2026-09-20T08:05:00Z",
+      "providerInstanceId": "weather.home",
+      "presentation": {
+        "title": "Temperature",
+        "value": "23",
+        "unit": "°C",
+        "trend": "flat"
+      },
+      "payload": {
+        "tempC": 23
+      },
+      "freshness": {
+        "state": "fresh"
+      }
+    }
+  ],
+  "deletedIds": [
+    "weather.home:forecast-old"
+  ]
+}

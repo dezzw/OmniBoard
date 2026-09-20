@@ -1,0 +1,17 @@
+{
+  "id": "health.personal:steps",
+  "type": "health.steps",
+  "kind": "progress",
+  "revision": 0,
+  "updatedAt": "2026-09-20T08:00:00Z",
+  "providerInstanceId": "health.personal",
+  "presentation": {
+    "title": "Steps",
+    "value": 0.5,
+    "style": "donut"
+  },
+  "payload": {},
+  "freshness": {
+    "state": "unknown"
+  }
+}

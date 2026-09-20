@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omniboard.dev/protocol/schemas/opp/provider-status.schema.json",
+  "title": "OppProviderStatusParams",
+  "description": "Params for OPP notification provider/status.",
+  "type": "object",
+  "required": ["providerInstanceId", "lifecycle"],
+  "additionalProperties": false,
+  "properties": {
+    "providerInstanceId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._-]+$"
+    },
+    "lifecycle": {
+      "type": "string",
+      "enum": [
+        "installed",
+        "configured",
+        "starting",
+        "ready",
+        "running",
+        "degraded",
+        "stopped",
+        "removed"
+      ]
+    },
+    "message": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omniboard.dev/protocol/schemas/opp/items-snapshot.schema.json",
+  "title": "OppItemsSnapshotParams",
+  "description": "Params for OPP notification items/snapshot.",
+  "type": "object",
+  "required": ["items"],
+  "additionalProperties": false,
+  "properties": {
+    "items": {
+      "type": "array",
+      "items": { "$ref": "../item/item.schema.json" }
+    }
+  }
+}

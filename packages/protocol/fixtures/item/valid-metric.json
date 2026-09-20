@@ -1,0 +1,25 @@
+{
+  "id": "weather.home:current",
+  "type": "weather.current",
+  "kind": "metric",
+  "revision": 3,
+  "updatedAt": "2026-09-20T08:00:00Z",
+  "providerInstanceId": "weather.home",
+  "presentation": {
+    "title": "Temperature",
+    "symbol": "sun.max.fill",
+    "value": "22",
+    "unit": "°C",
+    "trend": "up"
+  },
+  "payload": {
+    "tempC": 22,
+    "summary": "Sunny"
+  },
+  "freshness": {
+    "state": "fresh"
+  },
+  "ttl": {
+    "expiresAt": "2026-09-20T09:00:00Z"
+  }
+}

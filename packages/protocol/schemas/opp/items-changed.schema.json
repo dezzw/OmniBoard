@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omniboard.dev/protocol/schemas/opp/items-changed.schema.json",
+  "title": "OppItemsChangedParams",
+  "description": "Params for OPP notification items/changed.",
+  "type": "object",
+  "required": ["items", "deletedIds"],
+  "additionalProperties": false,
+  "properties": {
+    "items": {
+      "type": "array",
+      "items": { "$ref": "../item/item.schema.json" }
+    },
+    "deletedIds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9._-]+:[A-Za-z0-9._-]+$"
+      }
+    }
+  }
+}

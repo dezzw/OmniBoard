@@ -1,0 +1,121 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omniboard.dev/protocol/schemas/item/item.schema.json",
+  "title": "Item",
+  "description": "Normalized information unit stored by Core. Core must not branch on type, kind, or payload keys for layout; payload is opaque domain data from the Provider.",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "kind",
+    "revision",
+    "updatedAt",
+    "providerInstanceId",
+    "presentation",
+    "payload",
+    "freshness"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "type": "integer",
+      "minimum": 1,
+      "default": 1,
+      "description": "Optional Item schema version; omitted values default to 1. Phase 0 accepted set is {1}."
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._-]+:[A-Za-z0-9._-]+$",
+      "description": "Composite id: providerInstanceId:localId"
+    },
+    "type": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Opaque provider-defined type string. Core does not branch on it."
+    },
+    "kind": {
+      "type": "string",
+      "enum": ["notice", "metric", "progress", "countdown"]
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "providerInstanceId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._-]+$"
+    },
+    "presentation": {
+      "type": "object"
+    },
+    "payload": {
+      "type": "object",
+      "description": "Opaque domain payload. Core must not branch on keys or use payload for layout.",
+      "additionalProperties": true
+    },
+    "actions": {
+      "type": "array",
+      "description": "Optional actions for App default surface only.",
+      "items": { "$ref": "action.schema.json" }
+    },
+    "freshness": {
+      "type": "object",
+      "required": ["state"],
+      "additionalProperties": false,
+      "properties": {
+        "state": {
+          "type": "string",
+          "enum": ["fresh", "stale", "unknown"]
+        },
+        "observedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "ttl": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "expiresAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  },
+  "dependentSchemas": {
+    "kind": {
+      "oneOf": [
+        {
+          "properties": {
+            "kind": { "const": "notice" },
+            "presentation": { "$ref": "presentation.schema.json#/$defs/notice" }
+          }
+        },
+        {
+          "properties": {
+            "kind": { "const": "metric" },
+            "presentation": { "$ref": "presentation.schema.json#/$defs/metric" }
+          }
+        },
+        {
+          "properties": {
+            "kind": { "const": "progress" },
+            "presentation": { "$ref": "presentation.schema.json#/$defs/progress" }
+          }
+        },
+        {
+          "properties": {
+            "kind": { "const": "countdown" },
+            "presentation": { "$ref": "presentation.schema.json#/$defs/countdown" }
+          }
+        }
+      ]
+    }
+  }
+}

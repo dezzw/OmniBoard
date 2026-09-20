@@ -1,0 +1,23 @@
+{
+  "id": "health.personal:steps",
+  "type": "health.steps",
+  "kind": "progress",
+  "schemaVersion": 1,
+  "revision": 5,
+  "updatedAt": "2026-09-20T08:00:00Z",
+  "providerInstanceId": "health.personal",
+  "presentation": {
+    "title": "Steps",
+    "symbol": "figure.walk",
+    "value": 0.68,
+    "label": "6,800 / 10,000",
+    "style": "circular"
+  },
+  "payload": {
+    "count": 6800,
+    "goal": 10000
+  },
+  "freshness": {
+    "state": "fresh"
+  }
+}

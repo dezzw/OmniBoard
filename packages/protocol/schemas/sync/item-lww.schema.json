@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omniboard.dev/protocol/schemas/sync/item-lww.schema.json",
+  "title": "ItemLwwState",
+  "description": "Per-item last-write-wins state shape only. Merge algebra is defined in a later RFC.",
+  "type": "object",
+  "required": ["id", "revision"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._-]+:[A-Za-z0-9._-]+$"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 0
+    }
+  }
+}
