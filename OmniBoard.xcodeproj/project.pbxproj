@@ -17,11 +17,13 @@
 		C800000000000008 /* ScreenContentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C800000000000021 /* ScreenContentTests.swift */; };
 		C80000000000000A /* BoardSampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C800000000000018 /* BoardSampleData.swift */; };
 		C80000000000000B /* BoardCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C800000000000019 /* BoardCard.swift */; };
-		C80000000000000C /* WeatherStubCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C800000000000023 /* WeatherStubCard.swift */; };
-		C80000000000000D /* LoadProgressCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C800000000000024 /* LoadProgressCard.swift */; };
-		C80000000000000E /* TimerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C800000000000025 /* TimerCard.swift */; };
-		C80000000000000F /* CopyProgressCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C800000000000026 /* CopyProgressCard.swift */; };
-		C800000000000028 /* BoardScreenCopy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C800000000000027 /* BoardScreenCopy.swift */; };
+		C80000000000000C /* BoardWidgetItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C800000000000023 /* BoardWidgetItem.swift */; };
+		C80000000000000D /* BoardWidgetGridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C800000000000024 /* BoardWidgetGridLayout.swift */; };
+		C80000000000000E /* BoardWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C800000000000025 /* BoardWidgetView.swift */; };
+		C80000000000000F /* MetricWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C800000000000026 /* MetricWidgetView.swift */; };
+		C800000000000028 /* NoticeWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C800000000000027 /* NoticeWidgetView.swift */; };
+		C800000000000029 /* ProgressWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C800000000000036 /* ProgressWidgetView.swift */; };
+		C800000000000030 /* CountdownWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C800000000000037 /* CountdownWidgetView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,11 +49,13 @@
 		C800000000000021 /* ScreenContentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenContentTests.swift; sourceTree = "<group>"; };
 		C800000000000018 /* BoardSampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardSampleData.swift; sourceTree = "<group>"; };
 		C800000000000019 /* BoardCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardCard.swift; sourceTree = "<group>"; };
-		C800000000000023 /* WeatherStubCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherStubCard.swift; sourceTree = "<group>"; };
-		C800000000000024 /* LoadProgressCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadProgressCard.swift; sourceTree = "<group>"; };
-		C800000000000025 /* TimerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCard.swift; sourceTree = "<group>"; };
-		C800000000000026 /* CopyProgressCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyProgressCard.swift; sourceTree = "<group>"; };
-		C800000000000027 /* BoardScreenCopy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardScreenCopy.swift; sourceTree = "<group>"; };
+		C800000000000023 /* BoardWidgetItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardWidgetItem.swift; sourceTree = "<group>"; };
+		C800000000000024 /* BoardWidgetGridLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardWidgetGridLayout.swift; sourceTree = "<group>"; };
+		C800000000000025 /* BoardWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardWidgetView.swift; sourceTree = "<group>"; };
+		C800000000000026 /* MetricWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricWidgetView.swift; sourceTree = "<group>"; };
+		C800000000000027 /* NoticeWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeWidgetView.swift; sourceTree = "<group>"; };
+		C800000000000036 /* ProgressWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressWidgetView.swift; sourceTree = "<group>"; };
+		C800000000000037 /* CountdownWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownWidgetView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,13 +138,39 @@
 			children = (
 				C800000000000013 /* BoardView.swift */,
 				C800000000000018 /* BoardSampleData.swift */,
-				C800000000000023 /* WeatherStubCard.swift */,
-				C800000000000024 /* LoadProgressCard.swift */,
-				C800000000000025 /* TimerCard.swift */,
-				C800000000000026 /* CopyProgressCard.swift */,
-				C800000000000027 /* BoardScreenCopy.swift */,
+				C800000000000059 /* Models */,
+				C80000000000005A /* Layout */,
+				C80000000000005B /* Widgets */,
 			);
 			path = Board;
+			sourceTree = "<group>";
+		};
+		C800000000000059 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C800000000000023 /* BoardWidgetItem.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C80000000000005A /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				C800000000000024 /* BoardWidgetGridLayout.swift */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
+		C80000000000005B /* Widgets */ = {
+			isa = PBXGroup;
+			children = (
+				C800000000000025 /* BoardWidgetView.swift */,
+				C800000000000026 /* MetricWidgetView.swift */,
+				C800000000000027 /* NoticeWidgetView.swift */,
+				C800000000000036 /* ProgressWidgetView.swift */,
+				C800000000000037 /* CountdownWidgetView.swift */,
+			);
+			path = Widgets;
 			sourceTree = "<group>";
 		};
 		C800000000000057 /* Service */ = {
@@ -266,11 +296,13 @@
 				C800000000000006 /* StatusPill.swift in Sources */,
 				C80000000000000A /* BoardSampleData.swift in Sources */,
 				C80000000000000B /* BoardCard.swift in Sources */,
-				C80000000000000C /* WeatherStubCard.swift in Sources */,
-				C80000000000000D /* LoadProgressCard.swift in Sources */,
-				C80000000000000E /* TimerCard.swift in Sources */,
-				C80000000000000F /* CopyProgressCard.swift in Sources */,
-				C800000000000028 /* BoardScreenCopy.swift in Sources */,
+				C80000000000000C /* BoardWidgetItem.swift in Sources */,
+				C80000000000000D /* BoardWidgetGridLayout.swift in Sources */,
+				C80000000000000E /* BoardWidgetView.swift in Sources */,
+				C80000000000000F /* MetricWidgetView.swift in Sources */,
+				C800000000000028 /* NoticeWidgetView.swift in Sources */,
+				C800000000000029 /* ProgressWidgetView.swift in Sources */,
+				C800000000000030 /* CountdownWidgetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

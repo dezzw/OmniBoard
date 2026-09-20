@@ -1,31 +1,59 @@
 struct BoardSampleData {
-    let temperature: String
-    let location: String
-    let weatherStatus: String
-    let loadProgress: Double
-    let loadValue: String
-    let loadLabel: String
-    let opensInLabel: String
-    let timerDisplay: String
-    let timerExpiryCaption: String
-    let copyLabel: String
-    let copyProgress: Double
-    let copyProgressText: String
-    let copyCaption: String
-
-    static let preview = BoardSampleData(
-        temperature: "22°",
-        location: "Toronto",
-        weatherStatus: "Fresh",
-        loadProgress: 0.72,
-        loadValue: "72",
-        loadLabel: "Load",
-        opensInLabel: "Opens in",
-        timerDisplay: "12:40",
-        timerExpiryCaption: "Expires in 12m 40s · On this iPhone",
-        copyLabel: "Copy",
-        copyProgress: 0.62,
-        copyProgressText: "62%",
-        copyCaption: "On this iPhone"
-    )
+    static let widgets: [BoardWidgetItem] = [
+        BoardWidgetItem(
+            id: "metric-toronto",
+            kind: .metric,
+            size: .small,
+            title: "Toronto",
+            subtitle: "Temperature",
+            value: "22°",
+            status: "Fresh",
+            progress: nil,
+            presentation: nil
+        ),
+        BoardWidgetItem(
+            id: "progress-load",
+            kind: .progress,
+            size: .small,
+            title: "Load",
+            subtitle: "circular",
+            value: "72",
+            status: nil,
+            progress: 0.72,
+            presentation: .circular
+        ),
+        BoardWidgetItem(
+            id: "notice-weather-source",
+            kind: .notice,
+            size: .medium,
+            title: "Weather source updated",
+            subtitle: "Asked for the current temperature",
+            value: "",
+            status: "Fresh",
+            progress: nil,
+            presentation: nil
+        ),
+        BoardWidgetItem(
+            id: "progress-copy",
+            kind: .progress,
+            size: .medium,
+            title: "Copy",
+            subtitle: "bar · On this iPhone",
+            value: "62%",
+            status: nil,
+            progress: 0.62,
+            presentation: .bar
+        ),
+        BoardWidgetItem(
+            id: "countdown-meeting",
+            kind: .countdown,
+            size: .medium,
+            title: "Meeting",
+            subtitle: "Opens in",
+            value: "12:40",
+            status: "On this iPhone",
+            progress: nil,
+            presentation: nil
+        ),
+    ]
 }

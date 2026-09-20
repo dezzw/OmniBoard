@@ -2,7 +2,7 @@ import XCTest
 @testable import OmniBoard
 
 final class ScreenContentTests: XCTestCase {
-    func testBoardShowsHardcodedWeatherStub() {
+    func testBoardShowsWidgetGridContent() {
         let board = BoardView()
         let combined = board.displayedTexts.joined(separator: " ")
 
@@ -15,20 +15,20 @@ final class ScreenContentTests: XCTestCase {
             "Board should show 22°. Found: \(combined)"
         )
         XCTAssertTrue(
+            combined.contains("Load"),
+            "Board should show Load. Found: \(combined)"
+        )
+        XCTAssertTrue(
             combined.contains("72"),
             "Board should show load value 72. Found: \(combined)"
         )
         XCTAssertTrue(
-            combined.contains("Load"),
-            "Board should show Load label. Found: \(combined)"
+            combined.contains("Weather source updated"),
+            "Board should show notice title. Found: \(combined)"
         )
         XCTAssertTrue(
-            combined.contains("Opens in"),
-            "Board should show Opens in. Found: \(combined)"
-        )
-        XCTAssertTrue(
-            combined.contains("12:40"),
-            "Board should show 12:40. Found: \(combined)"
+            combined.contains("Asked for the current temperature"),
+            "Board should show notice subtitle. Found: \(combined)"
         )
         XCTAssertTrue(
             combined.contains("Copy"),
@@ -38,13 +38,21 @@ final class ScreenContentTests: XCTestCase {
             combined.contains("62%"),
             "Board should show 62%. Found: \(combined)"
         )
+        XCTAssertTrue(
+            combined.contains("Meeting"),
+            "Board should show Meeting. Found: \(combined)"
+        )
+        XCTAssertTrue(
+            combined.contains("Opens in"),
+            "Board should show Opens in. Found: \(combined)"
+        )
+        XCTAssertTrue(
+            combined.contains("12:40"),
+            "Board should show 12:40. Found: \(combined)"
+        )
 
-        for expected in BoardScreenCopy.displayedStrings() {
-            XCTAssertTrue(
-                board.displayedTexts.contains(expected),
-                "Board should include \(expected). Found: \(combined)"
-            )
-        }
+        let kinds = Set(BoardSampleData.widgets.map { widgetKindName($0.kind) })
+        XCTAssertEqual(kinds, Set(["notice", "metric", "progress", "countdown"]))
     }
 
     func testServiceShowsLocalStatusRows() {
@@ -71,5 +79,14 @@ final class ScreenContentTests: XCTestCase {
             combined.contains("System Blue"),
             "Settings should show System Blue. Found: \(combined)"
         )
+    }
+
+    private func widgetKindName(_ kind: BoardWidgetKind) -> String {
+        switch kind {
+        case .notice: "notice"
+        case .metric: "metric"
+        case .progress: "progress"
+        case .countdown: "countdown"
+        }
     }
 }
